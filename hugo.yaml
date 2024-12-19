@@ -1,0 +1,131 @@
+# Hugo configuration file
+#baseURL: \
+title: Guardanapo de Papel
+
+enableRobotsTXT: true
+enableGitInfo: true
+
+outputs:
+  home: [HTML]
+  page: [HTML, RSS]
+  section: [HTML, RSS]
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.139.4"
+
+#  workspace: hugo.work
+  imports:
+    - path: github.com/imfing/hextra
+
+# import hextra as module
+#g module:
+#g  imports:
+#g  - path: github.com/imfing/hextra
+
+defaultContentLanguage: pt
+
+markup:
+  # allow raw html
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
+enableInlineShortcodes: true
+
+menu:
+  main:
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+    - name: Sobre
+      pageRef: /sobre
+      weight: 2
+    - name: Contact ↗
+#      url: "https://github.com/imfing"
+      url: $CF_PAGES_URL
+      weight: 3
+    - name: Busca
+      weight: 4
+      params:
+        type: search
+    - name: Mastodon
+      weight: 5
+      url: "https://mastodon.nosotros.ong.br/@guardanapodepapel"
+      params:
+        icon: mastodon
+
+  sidebar:
+    - identifier: more
+      name: Mais
+      params:
+        type: separator
+      weight: 1
+    - identifier: about
+      name: "Sobre"
+      pageRef: "/about"
+      weight: 2
+    - identifier: hugoDocs
+      name: "Hugo Docs ↗"
+      url: "https://gohugo.io/documentation/"
+      weight: 3
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: false
+
+  page:
+    # full (100%), wide (90rem), normal (1280px)
+    width: normal
+
+  theme:
+    # light | dark | system
+    default: system
+    displayToggle: true
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: true
+
+  displayUpdatedDate: true
+  dateFormat: "02 de Janeiro de 2006"
+  
+  search:
+    enable: true
+    type: flexsearch
+
+    flexsearch:
+      # index page by: content | summary | heading | title
+      index: content
+      # full | forward | reverse | strict
+      # https://github.com/nextapps-de/flexsearch/#tokenizer-prefix-search
+      tokenize: forward
+
+  editURL:
+    enable: false
+    base: "https://github.com/imfing/hextra-starter-template/edit/main/content"
+
+  blog:
+    list:
+      displayTags: true
+      # date | lastmod | publishDate | title | weight
+      sortBy: date
+      sortOrder: desc # or "asc"
+
+  highlight:
+    copy:
+      enable: true
+      # hover | always
+      display: hover
+
+  comments:
+    enable: false
+    type: giscus
+ 

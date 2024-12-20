@@ -1,6 +1,6 @@
 ---
 date: '2024-12-20T07:19:54-03:00'
-draft: true
+draft: false
 title: 'A Ideologia Californiana'
 ---
 # A Ideologia Californiana
